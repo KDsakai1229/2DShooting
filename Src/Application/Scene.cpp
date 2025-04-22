@@ -3,8 +3,7 @@
 
 void Scene::Draw2D()
 {
-	// •¶š—ñ•\¦
-	SHADER.m_spriteShader.DrawString(0, 0, "Hello World", Math::Vector4(1, 1, 0, 1));
+	
 }
 
 void Scene::Update()
@@ -14,14 +13,12 @@ void Scene::Update()
 
 void Scene::Init()
 {
-	// ‰æ‘œ‚Ì“Ç‚İ‚İˆ—
-	charaTex.Load("player.png");
+	
 }
 
 void Scene::Release()
 {
-	// ‰æ‘œ‚Ì‰ğ•úˆ—
-	charaTex.Release();
+	
 }
 
 void Scene::ImGuiUpdate()

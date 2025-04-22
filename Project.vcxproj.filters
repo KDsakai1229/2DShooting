@@ -43,6 +43,9 @@
     <Filter Include="Src\System\Audio">
       <UniqueIdentifier>{667d1cb1-5ae5-476f-acd5-14b7d294a95a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Object">
+      <UniqueIdentifier>{45931730-ca68-4ffb-a374-0ad6bd4c175e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -138,6 +141,18 @@
     <ClInclude Include="Src\Application\Scene.h">
       <Filter>Src\Application</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Object\Player.h">
+      <Filter>Src\Application\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Enemy1.h">
+      <Filter>Src\Application\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Enemy2.h">
+      <Filter>Src\Application\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Enemy3.h">
+      <Filter>Src\Application\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -202,6 +217,18 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Scene.cpp">
       <Filter>Src\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Player.cpp">
+      <Filter>Src\Application\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Enemy1.cpp">
+      <Filter>Src\Application\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Enemy2.cpp">
+      <Filter>Src\Application\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Enemy3.cpp">
+      <Filter>Src\Application\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

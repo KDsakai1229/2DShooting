@@ -1,14 +1,12 @@
 #pragma once
 
+class Player;
+
 class Scene
 {
 private:
 
-	// テクスチャ ・・・ 画像データ
-	KdTexture charaTex;
-
-	// 行列 ・・・ 座標などの情報
-	Math::Matrix matrix;
+	Player* m_player;
 
 public:
 
