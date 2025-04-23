@@ -16,7 +16,7 @@ void Player::Init()
 	playerPos.x = 0;
 	playerPos.y = -300;
 
-	playerTex->Load("Texture/player.png");
+	
 	
 }
 
@@ -37,5 +37,33 @@ void Player::BulletDraw()
 
 void Player::BulletInit()
 {
-	bulletTex->Load("Texture/bullet.png");
+	
+}
+
+void Player::SetBTex(KdTexture* bTex)
+{
+	m_bTex = bTex;
+}
+
+bool Player::GetBAlive()
+{
+	return false;
+}
+
+Math::Vector2 Player::GetBPos()
+{
+	return Math::Vector2();
+}
+
+float Player::GetBRadius()
+{
+	return 0.0f;
+}
+
+void Player::BulletShot(Math::Vector2 pos, float targetAngle)
+{
+}
+
+void Player::BulletHit()
+{
 }
