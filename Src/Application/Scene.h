@@ -1,12 +1,23 @@
 #pragma once
 
-class Player;
+#include "Object/Player.h"
 
 class Scene
 {
 private:
 
-	Player* m_player;
+	Player m_player;
+	KdTexture BackTex;
+
+	KdTexture m_playerTex;
+	KdTexture m_enemyTex;
+	KdTexture m_bulletTex;
+
+	int sceneNum;
+	int scoreBord;
+
+	static const int Enemy1Max = 100;
+	static const int Enemy2Max = 20;
 
 public:
 
@@ -21,6 +32,15 @@ public:
 
 	// •`‰æˆ—
 	void Draw2D();
+
+	void TitleUpdate();
+	void TitleDraw();
+
+	void GameUpdate();
+	void GameDraw();
+
+	void ResultUpdate();
+	void ResultDraw();
 
 	// GUIˆ—
 	void ImGuiUpdate();
