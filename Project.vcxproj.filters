@@ -153,6 +153,9 @@
     <ClInclude Include="Src\Application\Object\Enemy3.h">
       <Filter>Src\Application\Object</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Object\Bullet.h">
+      <Filter>Src\Application\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -228,6 +231,9 @@
       <Filter>Src\Application\Object</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Enemy3.cpp">
+      <Filter>Src\Application\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Bullet.cpp">
       <Filter>Src\Application\Object</Filter>
     </ClCompile>
   </ItemGroup>
