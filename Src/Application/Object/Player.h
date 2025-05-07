@@ -4,6 +4,7 @@
 class Scene;
 class Enemy1;
 class Enemy2;
+class Enemy3;
 
 class Player
 {
@@ -27,6 +28,9 @@ public:
 	void HitBulletEnemy2(int eNum);
 	void HitPlayerEnemy2(int eNum);
 
+	void HitBulletEnemy3(int eNum);
+	void HitPlayerEnemy3(int eNum);
+
 private:
 
 	Math::Matrix playerMat;
@@ -38,12 +42,13 @@ private:
 	Scene* m_pOwner;
 
 	static const int m_bulletMax = 300;
-	static const int m_bCoolTime = 10;
+	static const int bCoolTime = 5;
 
 	Math::Vector2 m_bPos;
 	Math::Matrix m_bMat;
 	float m_bAngle;
 	bool m_bAlive;
+	int m_bCooltime;
 
 	const float m_moveSpeed = 5.0f;
 	const float m_radius = 32.0f;
@@ -51,9 +56,8 @@ private:
 
 	Bullet m_bullet[m_bulletMax];
 
-	static const int Enemy1Max = 100;
-
 	Enemy1* enemy1;
 	Enemy2* enemy2;
+	Enemy3* enemy3;
 
 };

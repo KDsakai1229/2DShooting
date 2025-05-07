@@ -3,7 +3,7 @@
 Enemy1::Enemy1()
 {
 	m_pos.x = rand() % (1280 - 64) + 1 - (640 - 32);
-	m_pos.y = 150;
+	m_pos.y = 1500;
 	m_move.x = 0;
 	m_move.y = 0;
 	m_alive = true;

@@ -16,13 +16,19 @@ private:
 	Player m_player;
 	Enemy1 m_enemy1[Enemy1Max];
 	Enemy2 m_enemy2[Enemy2Max];
+	Enemy3 m_enemy3[Enemy3Max];
 	KdTexture BackTex;
 	Math::Matrix BackMat;
+	KdTexture TitleTex;
+	Math::Matrix TitleMat;
+	Math::Matrix ExplosionMat;
 
 	KdTexture m_playerTex;
 	KdTexture m_enemyTex;
 	KdTexture m_enemy2Tex;
+	KdTexture m_enemy3Tex;
 	KdTexture m_bulletTex;
+	KdTexture m_explTex;
 
 	int sceneNum;
 	int scoreBord;
@@ -50,8 +56,11 @@ public:
 	void ResultUpdate();
 	void ResultDraw();
 
+	void ExplosionDraw(int f,Math::Matrix mat);
+
 	Enemy1* GetEnemy1(int e1);
 	Enemy2* GetEnemy2(int e2);
+	Enemy3* GetEnemy3(int e3);
 
 	// GUIèàóù
 	void ImGuiUpdate();

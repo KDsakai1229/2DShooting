@@ -24,14 +24,18 @@ void Player::Update()
 
 		if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 		{
-			for (int b = 0; b < m_bulletMax; b += 3)
+			if (m_bCooltime <= 0)
 			{
-				if (!m_bullet[b].GetAlive())
+				for (int b = 0; b < m_bulletMax; b += 3)
 				{
-					m_bullet[b].Shot(m_playerPos, DirectX::XMConvertToRadians(90 - 15));
-					m_bullet[b + 1].Shot(m_playerPos, DirectX::XMConvertToRadians(90));
-					m_bullet[b + 2].Shot(m_playerPos, DirectX::XMConvertToRadians(90 + 15));
-					break;
+					if (!m_bullet[b].GetAlive())
+					{
+						m_bullet[b].Shot(m_playerPos, DirectX::XMConvertToRadians(90));
+						m_bullet[b + 1].Shot(m_playerPos, DirectX::XMConvertToRadians(90 - 15));
+						m_bullet[b + 2].Shot(m_playerPos, DirectX::XMConvertToRadians(90 + 15));
+						m_bCooltime = bCoolTime;
+						break;
+					}
 				}
 			}
 		}
@@ -42,6 +46,11 @@ void Player::Update()
 	for (int b = 0; b < m_bulletMax; b++)
 	{
 		m_bullet[b].Update();
+	}
+
+	if (m_bCooltime > 0)
+	{
+		m_bCooltime--;
 	}
 }
 
@@ -70,6 +79,8 @@ void Player::Init()
 		m_bullet[b].SetTex(&m_bTex);
 		m_bullet[b].Init();
 	}
+
+	m_bCooltime = bCoolTime;
 }
 
 void Player::SetTex(KdTexture* pTex)
@@ -155,7 +166,7 @@ void Player::HitBulletEnemy2(int eNum)
 		const float y = bulletPos.y - enemyPos.y;
 		const float z = sqrt(x * x + y * y);
 
-		const float sumRadius = enemy1->GetRadius() + m_bullet[i].GetRadius();
+		const float sumRadius = enemy2->GetRadius() + m_bullet[i].GetRadius();
 
 		if (z < sumRadius)
 		{
@@ -182,6 +193,55 @@ void Player::HitPlayerEnemy2(int eNum)
 	if (z < sumRadius)
 	{
 		enemy2->Hit();
+		m_playerAlive = false;
+	}
+}
+
+void Player::HitBulletEnemy3(int eNum)
+{
+	enemy3 = m_pOwner->GetEnemy3(eNum);
+
+	if (!enemy3->GetAlive())return;
+
+	const Math::Vector2 enemyPos = enemy3->GetPos();
+
+	for (int i = 0; i < m_bulletMax; i++)
+	{
+		if (!m_bullet[i].GetAlive())continue;
+
+		const Math::Vector2 bulletPos = m_bullet[i].GetPos();
+
+		const float x = bulletPos.x - enemyPos.x;
+		const float y = bulletPos.y - enemyPos.y;
+		const float z = sqrt(x * x + y * y);
+
+		const float sumRadius = enemy3->GetRadius() + m_bullet[i].GetRadius();
+
+		if (z < sumRadius)
+		{
+			enemy3->Hit();
+			m_bullet[i].Hit();
+		}
+	}
+}
+
+void Player::HitPlayerEnemy3(int eNum)
+{
+	enemy3 = m_pOwner->GetEnemy3(eNum);
+
+	if (!enemy3->GetAlive())return;
+
+	const Math::Vector2 enemyPos = enemy3->GetPos();
+
+	const float x = m_playerPos.x - enemyPos.x;
+	const float y = m_playerPos.y - enemyPos.y;
+	const float z = sqrt(x * x + y * y);
+
+	const float sumRadius = enemy3->GetRadius() + m_radius;
+
+	if (z < sumRadius)
+	{
+		enemy3->Hit();
 		m_playerAlive = false;
 	}
 }

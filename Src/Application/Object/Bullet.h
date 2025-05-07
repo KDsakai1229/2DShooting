@@ -21,7 +21,7 @@ public:
 
 private:
 
-	const float m_moveSpeed = 20.0f;
+	const float m_moveSpeed = 10.0f;
 	const float m_radius = 8.0f;
 
 	KdTexture* m_bTex;

@@ -3,10 +3,11 @@
 Enemy2::Enemy2()
 {
 	m_pos.x = rand() % (1280 - 64) + 1 - (640 - 32);
-	m_pos.y = 150;
+	m_pos.y = 1500;
 	m_move.x = 0;
 	m_move.y = 0;
 	m_alive = true;
+	life = 5;
 	m_eTex = nullptr;
 }
 
@@ -14,13 +15,21 @@ Enemy2::~Enemy2()
 {
 }
 
-void Enemy2::Init()
+void Enemy2::Init(int e2)
 {
 	m_pos.x = rand() % (1280 - 64) + 1 - (640 - 32);
 	m_pos.y = rand() % 720 + 480;
-	m_move.x = m_moveSpeedX;
+	if (e2 % 2 == 0)
+	{
+		m_move.x = m_moveSpeedX;
+	}
+	else
+	{
+		m_move.x = -m_moveSpeedX;
+	}
 	m_move.y = -m_moveSpeedY;
 	m_alive = true;
+	life = 5;
 }
 
 void Enemy2::Update()
@@ -70,7 +79,11 @@ float Enemy2::GetRadius() const
 
 void Enemy2::Hit()
 {
-	m_alive = false;
+	life -= 1;
+	if (life <= 0)
+	{
+		m_alive = false;
+	}
 }
 
 void Enemy2::Revibal()
@@ -78,4 +91,5 @@ void Enemy2::Revibal()
 	m_pos.x = rand() % (1280 - 64) + 1 - (640 - 32);
 	m_pos.y = rand() % 720 + 480;
 	m_alive = true;
+	life = 5;
 }

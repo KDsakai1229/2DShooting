@@ -7,7 +7,7 @@ public:
 	Enemy2();
 	~Enemy2();
 
-	void Init();
+	void Init(int e2);
 	void Update();
 	void Draw();
 
@@ -30,5 +30,7 @@ private:
 	Math::Vector2 m_move;
 	Math::Matrix m_mat;
 	bool m_alive;
+
+	int life;
 
 };
